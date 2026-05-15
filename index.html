@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SPARK - Coming Soon</title>
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -17,16 +18,18 @@
     }
 
     body{
-      height:100vh;
+      min-height:100vh;
       overflow:hidden;
       position:relative;
       font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
       background:#000;
       color:white;
-      user-select:none;
     }
 
-    /* Background Grid */
+    /* =========================
+       RESPONSIVE BACKGROUND
+    ========================== */
+
     .bg-grid{
       position:absolute;
       inset:0;
@@ -38,10 +41,11 @@
     }
 
     .quadrant{
-      background-image:url('your-image.jpg');
-      background-size:200% 200%;
+      background-image:url('your-image.jpg'); /* change image */
+      background-size:cover;
       background-repeat:no-repeat;
-      transition:transform 0.8s ease;
+      transition:0.5s ease;
+      filter:brightness(0.9);
     }
 
     .top-left{
@@ -60,24 +64,29 @@
       background-position:bottom right;
     }
 
-    /* Overlay */
+    /* =========================
+       OVERLAY
+    ========================== */
+
     .overlay{
       position:absolute;
       inset:0;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.55),
-          rgba(0,0,0,0.72)
-        );
+      background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.45)
+      );
       z-index:2;
-      backdrop-filter:blur(2px);
+      backdrop-filter:blur(1px);
     }
 
-    /* Logo */
+    /* =========================
+       LOGO
+    ========================== */
+
     .spark{
       position:absolute;
-      top:60px;
+      top:5vh;
       left:50%;
       transform:translateX(-50%);
       z-index:3;
@@ -88,10 +97,9 @@
       text-align:center;
       text-transform:uppercase;
 
-      font-size:clamp(4rem,11vw,9rem);
+      font-size:clamp(3rem,10vw,9rem);
       font-weight:900;
-      letter-spacing:0.22em;
-      line-height:1;
+      letter-spacing:0.2em;
 
       animation:fadeUp 1.2s ease forwards;
 
@@ -100,7 +108,10 @@
         0 0 40px rgba(255,255,255,0.08);
     }
 
-    /* Button */
+    /* =========================
+       BUTTON
+    ========================== */
+
     .coming-btn{
       position:absolute;
       top:50%;
@@ -110,9 +121,10 @@
 
       padding:18px 44px;
 
-      font-size:clamp(1rem,2vw,1.3rem);
+      font-size:clamp(0.9rem,2vw,1.3rem);
       font-weight:600;
-      letter-spacing:0.28em;
+
+      letter-spacing:0.25em;
       text-transform:uppercase;
       text-decoration:none;
       color:white;
@@ -123,13 +135,7 @@
       background:rgba(255,255,255,0.08);
       backdrop-filter:blur(10px);
 
-      transition:
-        transform 0.3s ease,
-        background 0.3s ease,
-        color 0.3s ease,
-        box-shadow 0.3s ease;
-
-      animation:fadeUp 1.5s ease forwards;
+      transition:0.3s ease;
     }
 
     .coming-btn:hover{
@@ -143,65 +149,72 @@
         0 0 60px rgba(255,255,255,0.15);
     }
 
-    /* Social Icons */
+    /* =========================
+       SOCIAL ICONS
+    ========================== */
+
     .social-icons{
       position:absolute;
-      bottom:60px;
+      bottom:70px;
       left:50%;
       transform:translateX(-50%);
       z-index:3;
 
       display:flex;
       gap:22px;
+      flex-wrap:wrap;
+      justify-content:center;
     }
 
     .social-icons a{
       color:rgba(255,255,255,0.85);
-      font-size:1.3rem;
-      transition:all 0.3s ease;
+      font-size:1.4rem;
+      transition:0.3s ease;
     }
 
     .social-icons a:hover{
-      color:#ffffff;
+      color:#fff;
       transform:translateY(-4px) scale(1.15);
-
-      text-shadow:
-        0 0 10px rgba(255,255,255,0.7),
-        0 0 25px rgba(255,255,255,0.4);
     }
 
-    /* Footer */
+    /* =========================
+       FOOTER
+    ========================== */
+
     .footer{
       position:absolute;
-      bottom:24px;
+      bottom:20px;
       left:50%;
       transform:translateX(-50%);
       z-index:3;
 
+      width:100%;
+      text-align:center;
+      padding:0 20px;
+
       font-size:0.85rem;
       letter-spacing:0.08em;
-      color:rgba(255,255,255,0.75);
 
-      text-align:center;
-      width:100%;
-      padding:0 20px;
+      color:rgba(255,255,255,0.7);
     }
 
-    /* Background Motion */
+    /* =========================
+       ANIMATIONS
+    ========================== */
+
     @keyframes zoomSlow{
       from{
         transform:scale(1);
       }
       to{
-        transform:scale(1.06);
+        transform:scale(1.05);
       }
     }
 
-    /* Fade Animation */
     @keyframes fadeUp{
       from{
         opacity:0;
-        transform:translate(-50%,20px);
+        transform:translate(-50%,30px);
       }
       to{
         opacity:1;
@@ -209,31 +222,95 @@
       }
     }
 
-    /* Mobile */
+    /* =========================
+       TABLET
+    ========================== */
+
+    @media (max-width:992px){
+
+      .spark{
+        font-size:clamp(3rem,12vw,6rem);
+        letter-spacing:0.15em;
+      }
+
+      .coming-btn{
+        padding:16px 34px;
+      }
+
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
     @media (max-width:768px){
+
+      body{
+        overflow:hidden;
+      }
+
+      .bg-grid{
+        grid-template-columns:1fr;
+        grid-template-rows:repeat(4,1fr);
+      }
+
+      .quadrant{
+        background-size:cover;
+        background-position:center;
+      }
 
       .spark{
         top:40px;
+        font-size:clamp(2.5rem,14vw,5rem);
         letter-spacing:0.12em;
       }
 
       .coming-btn{
-        padding:16px 32px;
-        letter-spacing:0.18em;
+        width:85%;
+        max-width:320px;
+
+        text-align:center;
+
+        padding:16px 20px;
+
+        font-size:0.95rem;
+        letter-spacing:0.15em;
       }
 
       .social-icons{
-        bottom:58px;
+        bottom:70px;
         gap:18px;
       }
 
       .social-icons a{
-        font-size:1.1rem;
+        font-size:1.15rem;
       }
 
       .footer{
-        font-size:0.75rem;
+        font-size:0.72rem;
+        bottom:18px;
       }
+    }
+
+    /* =========================
+       SMALL MOBILE
+    ========================== */
+
+    @media (max-width:480px){
+
+      .spark{
+        font-size:2.2rem;
+      }
+
+      .coming-btn{
+        padding:14px 18px;
+        font-size:0.82rem;
+      }
+
+      .social-icons{
+        gap:15px;
+      }
+
     }
 
   </style>
@@ -241,7 +318,7 @@
 
 <body>
 
-  <!-- 4 Split Background -->
+  <!-- Background -->
   <div class="bg-grid">
     <div class="quadrant top-left"></div>
     <div class="quadrant top-right"></div>
@@ -255,34 +332,33 @@
   <!-- Logo -->
   <h1 class="spark">SPARK</h1>
 
-  <!-- CTA -->
-  <a href="#" class="coming-btn" aria-label="Coming Soon">
+  <!-- Button -->
+  <a href="#" class="coming-btn">
     Coming Soon
   </a>
 
-  <!-- Social Media Icons -->
+  <!-- Social Icons -->
   <div class="social-icons">
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fab fa-youtube"></i></a>
+
+    <a href="https://www.instagram.com/as___th_28/" target="_blank">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://x.com/yourusername" target="_blank">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/yourusername/" target="_blank">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@yourchannel" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+
   </div>
-<a href="https://www.https://www.instagram.com/as___th_28/" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-<a href="https://x.com/yourusername" target="_blank">
-  <i class="fab fa-x-twitter"></i>
-</a>
 
-<a href="https://www.linkedin.com/in/yourusername/" target="_blank">
-  <i class="fab fa-linkedin-in"></i>
-</a>
-
-<a href="https://www.youtube.com/@yourchannel" target="_blank">
-  <i class="fab fa-youtube"></i>
-</a>
-
- Footer -->
+  <!-- Footer -->
   <footer class="footer">
     © 2026 Spark. All rights reserved.
   </footer>
