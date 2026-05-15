@@ -27,41 +27,23 @@
     }
 
     /* =========================
-       RESPONSIVE BACKGROUND
+       SINGLE BACKGROUND IMAGE
     ========================== */
 
-    .bg-grid{
+    .background{
       position:absolute;
       inset:0;
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      grid-template-rows:repeat(2,1fr);
-      z-index:1;
-      animation:zoomSlow 18s ease-in-out infinite alternate;
-    }
 
-    .quadrant{
-      background-image:url('your-image.jpg'); /* change image */
+      background-image:url('your-image.jpg');
       background-size:cover;
+      background-position:center;
       background-repeat:no-repeat;
-      transition:0.5s ease;
+
+      z-index:1;
+
+      animation:zoomSlow 18s ease-in-out infinite alternate;
+
       filter:brightness(0.9);
-    }
-
-    .top-left{
-      background-position:top left;
-    }
-
-    .top-right{
-      background-position:top right;
-    }
-
-    .bottom-left{
-      background-position:bottom left;
-    }
-
-    .bottom-right{
-      background-position:bottom right;
     }
 
     /* =========================
@@ -71,11 +53,13 @@
     .overlay{
       position:absolute;
       inset:0;
+
       background:linear-gradient(
         to bottom,
         rgba(0,0,0,0.25),
         rgba(0,0,0,0.45)
       );
+
       z-index:2;
       backdrop-filter:blur(1px);
     }
@@ -101,11 +85,11 @@
       font-weight:900;
       letter-spacing:0.2em;
 
-      animation:fadeUp 1.2s ease forwards;
-
       text-shadow:
         0 0 15px rgba(255,255,255,0.15),
         0 0 40px rgba(255,255,255,0.08);
+
+      animation:fadeDown 1.2s ease;
     }
 
     /* =========================
@@ -136,6 +120,8 @@
       backdrop-filter:blur(10px);
 
       transition:0.3s ease;
+
+      animation:fadeUp 1.5s ease;
     }
 
     .coming-btn:hover{
@@ -155,7 +141,7 @@
 
     .social-icons{
       position:absolute;
-      bottom:70px;
+      bottom:110px;
       left:50%;
       transform:translateX(-50%);
       z-index:3;
@@ -175,6 +161,10 @@
     .social-icons a:hover{
       color:#fff;
       transform:translateY(-4px) scale(1.15);
+
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 25px rgba(255,255,255,0.4);
     }
 
     /* =========================
@@ -183,7 +173,7 @@
 
     .footer{
       position:absolute;
-      bottom:20px;
+      bottom:55px;
       left:50%;
       transform:translateX(-50%);
       z-index:3;
@@ -207,7 +197,18 @@
         transform:scale(1);
       }
       to{
-        transform:scale(1.05);
+        transform:scale(1.08);
+      }
+    }
+
+    @keyframes fadeDown{
+      from{
+        opacity:0;
+        transform:translate(-50%,-30px);
+      }
+      to{
+        opacity:1;
+        transform:translate(-50%,0);
       }
     }
 
@@ -236,7 +237,6 @@
       .coming-btn{
         padding:16px 34px;
       }
-
     }
 
     /* =========================
@@ -244,20 +244,6 @@
     ========================== */
 
     @media (max-width:768px){
-
-      body{
-        overflow:hidden;
-      }
-
-      .bg-grid{
-        grid-template-columns:1fr;
-        grid-template-rows:repeat(4,1fr);
-      }
-
-      .quadrant{
-        background-size:cover;
-        background-position:center;
-      }
 
       .spark{
         top:40px;
@@ -278,7 +264,7 @@
       }
 
       .social-icons{
-        bottom:70px;
+        bottom:120px;
         gap:18px;
       }
 
@@ -288,7 +274,7 @@
 
       .footer{
         font-size:0.72rem;
-        bottom:18px;
+        bottom:70px;
       }
     }
 
@@ -310,7 +296,6 @@
       .social-icons{
         gap:15px;
       }
-
     }
 
   </style>
@@ -318,13 +303,8 @@
 
 <body>
 
-  <!-- Background -->
-  <div class="bg-grid">
-    <div class="quadrant top-left"></div>
-    <div class="quadrant top-right"></div>
-    <div class="quadrant bottom-left"></div>
-    <div class="quadrant bottom-right"></div>
-  </div>
+  <!-- Single Background -->
+  <div class="background"></div>
 
   <!-- Overlay -->
   <div class="overlay"></div>
@@ -333,7 +313,7 @@
   <h1 class="spark">SPARK</h1>
 
   <!-- Button -->
-  <a href="#" class="coming-btn">
+  <a href="1page.html" class="coming-btn">
     Coming Soon
   </a>
 
