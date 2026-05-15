@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SPARK - Coming Soon</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      position: relative;
+      color: #ffffff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      overflow: hidden;
+    }
+
+    /* 4-Quadrant Grid Container */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      z-index: 1;
+    }
+
+    /* Single image reference mapped across all quadrants */
+    .quadrant {
+      /* REPLACE your-image.jpg WITH YOUR IMAGE FILE NAME */
+      background-image: url('your-image.jpg');
+      background-size: 200% 200%;
+      background-repeat: no-repeat;
+    }
+
+    /* Align texture focus points for each quadrant */
+    .top-left     { background-position: top left; }
+    .top-right    { background-position: top right; }
+    .bottom-left  { background-position: bottom left; }
+    .bottom-right { background-position: bottom right; }
+
+    /* Dark overlay covering the grid */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 2;
+    }
+
+    /* Header locked to top */
+    .spark {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      font-size: clamp(4.5rem, 12vw, 9rem);
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      line-height: 1;
+      text-align: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    /* Button styles centered in the middle of the screen */
+    .coming-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      
+      /* Typography */
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      
+      /* Sizing & Borders */
+      padding: 16px 40px;
+      border: 2px solid #ffffff;
+      background: transparent;
+      cursor: pointer;
+      white-space: nowrap;
+      
+      /* Visual Effects */
+      transition: all 0.3s ease;
+    }
+
+    /* Modern Hover Effect */
+    .coming-btn:hover {
+      background: #ffffff;
+      color: #000000;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 4-part split background -->
+  <div class="bg-grid">
+    <div class="quadrant top-left"></div>
+    <div class="quadrant top-right"></div>
+    <div class="quadrant bottom-left"></div>
+    <div class="quadrant bottom-right"></div>
+  </div>
+
+  <div class="overlay"></div>
+
+  <h1 class="spark">SPARK</h1>
+  
+  <!-- Changed paragraph tag to a functional link button element -->
+  <a href="#" class="coming-btn">Coming Soon</a>
+</body>
+</html>
